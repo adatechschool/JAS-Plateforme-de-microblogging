@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JAS;
+use App\Models\Chirp;
 use Illuminate\Http\Request;
 
-class JASController extends Controller
+class ChirpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class JASController extends Controller
      */
     public function index()
     {
-        // return 'Hello, World!';
-        // return view('jas.index');
+        return view('chirps.index');
     }
 
     /**
@@ -42,10 +41,10 @@ class JASController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\JAS  $jAS
+     * @param  \App\Models\Chirp  $chirp
      * @return \Illuminate\Http\Response
      */
-    public function show(JAS $jAS)
+    public function show(Chirp $chirp)
     {
         //
     }
@@ -53,10 +52,10 @@ class JASController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\JAS  $jAS
+     * @param  \App\Models\Chirp  $chirp
      * @return \Illuminate\Http\Response
      */
-    public function edit(JAS $jAS)
+    public function edit(Chirp $chirp)
     {
         //
     }
@@ -65,10 +64,10 @@ class JASController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\JAS  $jAS
+     * @param  \App\Models\Chirp  $chirp
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JAS $jAS)
+    public function update(Request $request, Chirp $chirp)
     {
         //
     }
@@ -76,10 +75,10 @@ class JASController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\JAS  $jAS
+     * @param  \App\Models\Chirp  $chirp
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JAS $jAS)
+    public function destroy(Chirp $chirp)
     {
         //
     }
