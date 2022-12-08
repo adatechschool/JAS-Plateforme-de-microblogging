@@ -58,6 +58,7 @@
                                 </x-dropdown>
                             @endif
                         </div>
+                        <img src="{{ $chirp->img_url }}" alt="{{ $chirp->message }}" width="300" height="300">
                         <p class="mt-4 text-lg text-gray-900">{{ $chirp->message }}</p>
                     </div>
                 </div>
