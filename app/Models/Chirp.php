@@ -11,6 +11,8 @@ class Chirp extends Model
 
     protected $fillable = [
         'message',
+        'img_url',
+        // 'user_id',
     ];
 
     public function user()
