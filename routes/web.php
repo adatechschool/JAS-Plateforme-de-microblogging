@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
+use App\Http\Controllers\BioController;
 
 
 /*
@@ -19,6 +20,11 @@ use App\Http\Controllers\ChirpController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/bio', BioController::class)
+->only(['index', 'store', 'edit', 'update', 'destroy'])    
+->middleware(['auth', 'verified']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

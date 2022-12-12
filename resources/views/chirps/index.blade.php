@@ -6,8 +6,9 @@
                 name="img_url"
                 placeholder="{{ __('What\'s your image url?') }}"
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-            >{{ old('img_url') }}</textarea>
+            >{{ old('img_url') }}</textarea> 
             <!-- <x-primary-button class="mt-4">{{ __('Your Image') }}</x-primary-button>  -->
+            <!-- <input type="file" class="form-control" name="img_url" /> -->
             
             <textarea
                 name="message"
@@ -15,8 +16,9 @@
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
             >{{ old('message') }}</textarea>
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
-            
-            <x-primary-button class="mt-4">{{ __('Chirp') }}</x-primary-button>
+           
+
+            <x-primary-button class="mt-4">{{ __('Upload') }}</x-primary-button>
         </form>
 
         <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
