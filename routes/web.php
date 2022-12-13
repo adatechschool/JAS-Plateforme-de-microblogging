@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/bio', BioController::class)
+Route::resource('bio', BioController::class)
 ->only(['index', 'store', 'edit', 'update', 'destroy'])    
 ->middleware(['auth', 'verified']);
 

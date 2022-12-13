@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('bios', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('bio_text');
             $table->timestamps();
         });
     }
