@@ -37,11 +37,14 @@ class BioController extends Controller
     {
         $validated = $request->validate([
             'bio_text' => 'required|string',
-            'bio_img_ref' => 'required|string',
+            'bio_img_ref' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
- 
+        
+        $imageName = time().'.'.$request->bio_img_ref->extension();
+        $request->bio_img_ref->move(public_path('images_bio'), $imageName);
+        $validated['bio_img_ref']=$imageName;
         $request->user()->bio()->create($validated);
- 
+        
         return redirect(route('bio.index'));
     }
 
