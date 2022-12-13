@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('bio_text');
+            $table->string('bio_img_ref');
             $table->timestamps();
         });
     }

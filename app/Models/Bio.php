@@ -11,5 +11,10 @@ class Bio extends Model
 
     protected $fillable = [
         'bio_text',
+        'bio_img_ref',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

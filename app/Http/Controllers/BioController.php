@@ -37,6 +37,7 @@ class BioController extends Controller
     {
         $validated = $request->validate([
             'bio_text' => 'required|string',
+            'bio_img_ref' => 'required|string',
         ]);
  
         $request->user()->bio()->create($validated);

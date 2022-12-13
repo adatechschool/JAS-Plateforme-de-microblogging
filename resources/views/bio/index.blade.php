@@ -6,8 +6,16 @@
                 name="bio_text"
                 placeholder="{{ __('Introduce yourself') }}"
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-            >{{ old('message') }}</textarea>
-            <x-input-error :messages="$errors->get('message')" class="mt-2" />
+                >{{ old('bio_text') }}
+            </textarea>
+            <textarea
+                name="bio_img_ref"
+                placeholder="{{ __('An image that represents you') }}"
+                class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                >{{ old('bio_img_ref') }}
+            </textarea>
+
+            <x-input-error :messages="$errors->get('bio_text')" class="mt-2" />
             <x-primary-button class="mt-4">{{ __('Share!') }}</x-primary-button>
         </form>
     </div>
