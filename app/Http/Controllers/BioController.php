@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BioController extends Controller
 {
@@ -12,9 +13,12 @@ class BioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Bio $bio)
     {
-        return view('bio.index');
+        $bio = Bio::latest()->first();
+        
+
+        return view('bio.index',compact('bio'));  
     }
 
     /**
@@ -56,8 +60,9 @@ class BioController extends Controller
      */
     public function show(Bio $bio)
     {
-        //
+      
     }
+    
 
     /**
      * Show the form for editing the specified resource.
