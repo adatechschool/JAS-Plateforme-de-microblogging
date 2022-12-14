@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Bio;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BioController extends Controller
 {
@@ -15,10 +16,26 @@ class BioController extends Controller
      */
     public function index(Bio $bio)
     {
-        $bio = Bio::latest()->first();
+        $userID = Auth::user()->id; 
         
+        $user = DB::table('users')->where('id', $userID)->first();
+        
+        $user_name=$user->name;
 
-        return view('bio.index',compact('bio'));  
+        $chirps = DB::table('chirps')
+            ->select('message','img_url')
+            ->where('user_id',$userID)
+            ->orderBy('id', 'DESC')
+            ->get();
+        
+        $bio = DB::table('bios')
+            ->select('bio_text','bio_img_ref')
+            ->where('user_id',$userID)
+            ->orderBy('id', 'DESC')
+            ->first();
+         //dd($chirps[0]->message);   
+        
+        return view('bio.index',compact('bio','user_name','chirps'));  
     }
 
     /**
@@ -41,7 +58,7 @@ class BioController extends Controller
     {
         $validated = $request->validate([
             'bio_text' => 'required|string',
-            'bio_img_ref' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bio_img_ref' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
         ]);
         
         $imageName = time().'.'.$request->bio_img_ref->extension();
