@@ -23,7 +23,7 @@ class BioController extends Controller
         $user_name=$user->name;
 
         $chirps = DB::table('chirps')
-            ->select('message','img_url')
+            ->select('message','img_url','created_at')
             ->where('user_id',$userID)
             ->orderBy('id', 'DESC')
             ->get();
@@ -33,9 +33,10 @@ class BioController extends Controller
             ->where('user_id',$userID)
             ->orderBy('id', 'DESC')
             ->first();
-         //dd($chirps[0]->message);   
+         //dd($bio);
+         $message = 'Do no`t hesitate to fill your profile' ;   
         
-        return view('bio.index',compact('bio','user_name','chirps'));  
+        return view('bio.index',compact('bio','user_name','chirps', 'message'));  
     }
 
     /**
